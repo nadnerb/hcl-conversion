@@ -14,7 +14,7 @@ func main() {
 	file := flag.Arg(0)
 
 	if *version == true {
-		fmt.Printf("%s version %s\n", os.Args[0], Version)
+		fmt.Printf("%s: %s\n Version: %s\n Commit: %s\n", os.Args[0], ProjectName, Version, gitCommit())
 		return
 	}
 
