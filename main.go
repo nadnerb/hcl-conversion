@@ -34,12 +34,19 @@ func main() {
 		os.Exit(1)
 	}
 
-	stateFile, err := os.Open(path)
-	defer stateFile.Close()
+	values, err := Load(path)
+
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error opening hcl file: %s\n", err)
+		fmt.Fprintf(os.Stderr, "Error: %s\n", err)
 		os.Exit(1)
 	}
 
+	if len(values) > 0 {
+		fmt.Printf("%s=%s\n", values[0].Name, values[0].Value)
+		os.Exit(0)
+	} else {
+		fmt.Print("No Values\n")
+		os.Exit(0)
+	}
 }
 

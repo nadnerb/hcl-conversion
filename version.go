@@ -1,10 +1,9 @@
 package main
 
-// The git commit that was compiled. This will be filled in by the compiler.
+var ProjectName = "HCL converter"
+
+// The git commit that at compile time. Use -ldflags "-X main.GitCommit `git rev-parse HEAD`"
 var GitCommit string
-
-var ProjectName = "HCL configuration"
-
 func gitCommit() string {
 	if GitCommit != "" {
 		return GitCommit
@@ -12,5 +11,5 @@ func gitCommit() string {
 	return "unknown"
 }
 
-// The main version number that is being run at the moment.
+// The version number.
 const Version = "0.0.1"
