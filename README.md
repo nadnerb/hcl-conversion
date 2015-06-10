@@ -1,14 +1,14 @@
-# HCL Configuration
+# HCL Conversion
 
-This project was created to be able to read HCL variable files to be used in other projects.
+This project was created to enable reading HCL configuration files to be used by other tools.
 
-For example, I would like to pass configuration from a Terraform tfvars file and pass them to ansible.
+For example, I would like to pass configuration from a Terraform tfvars file and use them in ansible.
 
 ### Using
 
 Example:
 
-`./hcl-configuration filename.tfvars`
+`./hcl-configuration example.tfvars`
 
 ### Building
 
