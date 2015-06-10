@@ -42,7 +42,8 @@ func main() {
 	}
 
 	if len(values) > 0 {
-		fmt.Printf("%s=%s\n", values[0].Name, values[0].Value)
+		all, _ := output(values)
+		fmt.Printf("%s\n", all)
 		os.Exit(0)
 	} else {
 		fmt.Print("No Values\n")

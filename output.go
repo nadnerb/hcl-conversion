@@ -5,11 +5,11 @@ import (
 	"strings"
 )
 
-func output (results []*Result) (string, error) {
+func output (values []*ConfigValue) (string, error) {
 
 	var all []string
 
-	for _, n := range results {
+	for _, n := range values {
 		var buffer bytes.Buffer
 		buffer.WriteString(n.Name)
 		buffer.WriteString("=")

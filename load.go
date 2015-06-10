@@ -8,12 +8,12 @@ import (
 	hclobj "github.com/hashicorp/hcl/hcl"
 )
 
-type Result struct {
+type ConfigValue struct {
 	Name						string
 	Value						string
 }
 
-func Load(path string) ([]*Result, error) {
+func Load(path string) ([]*ConfigValue, error) {
 	// Read the HCL file and prepare for parsing
 	file, err := ioutil.ReadFile(path)
 	if err != nil {
@@ -37,9 +37,9 @@ func Load(path string) ([]*Result, error) {
 		}
 	}
 
-	var result []*Result
+	var result []*ConfigValue
 	for _, obj := range all {
-		result = append(result, &Result{
+		result = append(result, &ConfigValue{
 			Name: obj.Key,
 			Value: obj.Value.(string),
 		})
