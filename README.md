@@ -10,10 +10,14 @@ Example:
 
 `./hcl-configuration example.tfvars`
 
+With ansible
+
+``ansible-playbook playbook.yml --extra-vars "`$HCLC_PATH/hcl-conversion ~/.terraform/example.tfvars`"``
+
 ### Building
 
 ``go build -ldflags "-X main.GitCommit `git rev-parse HEAD`"``
 
 ### Caveats
 
-I don't actually know Go..
+I don't know Go.
