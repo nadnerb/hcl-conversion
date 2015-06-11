@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-func output (values []*ConfigValue) (string, error) {
+func Output (values []*ConfigValue) (string, error) {
 
 	var all []string
 

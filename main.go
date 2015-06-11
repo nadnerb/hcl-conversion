@@ -42,7 +42,7 @@ func main() {
 	}
 
 	if len(values) > 0 {
-		all, _ := output(values)
+		all, _ := Output(values)
 		fmt.Printf("%s\n", all)
 		os.Exit(0)
 	} else {
