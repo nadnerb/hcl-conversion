@@ -21,3 +21,16 @@ With ansible
 ### Caveats
 
 I don't know Go.
+
+### Issues
+
+When testing
+
+`cannot find package "github.com/stretchr/testify/assert" in any of: ...`
+
+You will need to
+
+```shell
+$ go get github.com/stretchr/testify/assert
+$ go install github.com/stretchr/testify/assert
+```
