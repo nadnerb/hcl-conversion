@@ -1,4 +1,4 @@
-package main
+package conversion
 
 import (
 	"testing"
@@ -6,14 +6,14 @@ import (
 )
 
 func TestLoad(t *testing.T) {
-	values, err := Load("fixtures/some.tfvars")
+	values, err := Load("../fixtures/some.tfvars")
 
 	assert.Nil(t, err)
 	assert.Equal(t, len(values), 2, "we should have 2 return values")
 }
 
 func TestLoadConfigValues(t *testing.T) {
-	values, _ := Load("fixtures/some.tfvars")
+	values, _ := Load("../fixtures/some.tfvars")
 
 	assert.Equal(t, values[0].Name, "some_value")
 	assert.Equal(t, values[0].Value, "a value")

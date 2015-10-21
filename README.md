@@ -18,9 +18,11 @@ With ansible
 
 ``go build -ldflags "-X main.GitCommit `git rev-parse HEAD`"``
 
-### Caveats
+### Testing
 
-I don't know Go.
+```shell
+$ go test ./...
+```
 
 ### Issues
 
@@ -32,5 +34,4 @@ You will need to
 
 ```shell
 $ go get github.com/stretchr/testify/assert
-$ go install github.com/stretchr/testify/assert
 ```

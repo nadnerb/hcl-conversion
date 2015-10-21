@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+
+	"github.com/nadnerb/hcl-conversion/conversion"
 )
 
 var version = flag.Bool("version", false, "print version information and exit")
@@ -34,7 +36,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	values, err := Load(path)
+	values, err := conversion.Load(path)
 
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error: %s\n", err)
@@ -42,7 +44,7 @@ func main() {
 	}
 
 	if len(values) > 0 {
-		all, _ := Output(values)
+		all, _ := conversion.Output(values)
 		fmt.Printf("%s\n", all)
 		os.Exit(0)
 	} else {
