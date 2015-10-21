@@ -13,7 +13,32 @@ type ConfigValue struct {
 	Value						string
 }
 
-func Load(path string) ([]*ConfigValue, error) {
+func LoadConfigValue(path string) ([]*ConfigValue, error) {
+
+	all, err := Load(path)
+	var result []*ConfigValue
+	for _, obj := range all {
+		result = append(result, &ConfigValue{
+			Name: obj.Key,
+			Value: obj.Value.(string),
+		})
+	}
+
+	if err != nil {
+		return nil, fmt.Errorf(
+			"Error parsing %s: %s", path, err)
+	}
+
+	// Build up the result
+	//var result Config
+	//if err := hcl.DecodeObject(&result, obj); err != nil {
+		//return nil, err
+	//}
+
+	return result, nil
+}
+
+func Load(path string) ([]*hclobj.Object, error) {
 	// Read the HCL file and prepare for parsing
 	file, err := ioutil.ReadFile(path)
 	if err != nil {
@@ -37,25 +62,5 @@ func Load(path string) ([]*ConfigValue, error) {
 		}
 	}
 
-	var result []*ConfigValue
-	for _, obj := range all {
-		result = append(result, &ConfigValue{
-			Name: obj.Key,
-			Value: obj.Value.(string),
-		})
-	}
-
-	if err != nil {
-		return nil, fmt.Errorf(
-			"Error parsing %s: %s", path, err)
-	}
-
-	// Build up the result
-	//var result Config
-	//if err := hcl.DecodeObject(&result, obj); err != nil {
-		//return nil, err
-	//}
-
-	return result, nil
+	return all, nil
 }
-

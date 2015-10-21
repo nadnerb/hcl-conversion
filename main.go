@@ -36,7 +36,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	values, err := conversion.Load(path)
+	values, err := conversion.LoadConfigValue(path)
 
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error: %s\n", err)
