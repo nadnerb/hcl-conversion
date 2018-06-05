@@ -16,6 +16,8 @@ With ansible
 
 ### Building
 
+``dep ensure``
+
 ``go build -ldflags "-X main.GitCommit `git rev-parse HEAD`"``
 
 ### Testing
